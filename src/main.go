@@ -3,6 +3,7 @@ package main
 import (
 	"databaseHelper"
 	"net/http"
+	"product"
 	"user"
 	//"fmt"
 	//"model"
@@ -26,6 +27,15 @@ func main() {
 	http.HandleFunc("/user/login", user.LoginUser)
 	// /user/profile
 	http.HandleFunc("/user/profile", user.UserProfile)
+
+	//Add product to database
+	http.HandleFunc("/product/add", product.AddProd)
+	//Delete a particular product
+	// http.HandleFunc("/product/delete", product.DeleteProd)
+	// //Edit a particular product
+	// http.HandleFunc("/product/edit", product.EditProd)
+	// //Search Products
+	// http.HandleFunc("product/search", product.SearchProd)
 
 	http.ListenAndServe(":8008", nil)
 
